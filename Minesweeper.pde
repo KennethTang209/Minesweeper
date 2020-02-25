@@ -29,6 +29,7 @@ public void setMines()
     int row = (int)(Math.random()*NUM_ROWS);
     int col = (int)(Math.random()*NUM_COLS);
     if(!mines.contains(buttons[row][col])){mines.add(buttons[row][col]);}
+    else{i--;}
   }
 }
 
@@ -48,6 +49,9 @@ public boolean isWon()
 public void displayLosingMessage()
 {
   for(int i = 0; i < mines.size(); i++){mines.get(i).clicked = true;}
+  for(int i = 0; i < buttons.length; i++){
+      for(int j = 0; j < buttons[i].length; j++){buttons[i][j].setLabel("X");}
+    }
 }
 public void displayWinningMessage()
 {
